@@ -1,3 +1,31 @@
 body {
     font-family: sans-serif;
 }
+
+.pad {
+    opacity: 0;
+    user-select: none;
+    cursor: default;
+}
+
+#input input[type=number] {
+    width:40px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    display: none;
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+#euclid {
+    border-collapse: collapse;
+}
+
+#euclid .num,
+#euclid .divisor{
+    text-align: right;
+}
