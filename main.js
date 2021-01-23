@@ -61,7 +61,7 @@ function generateEuclidHTML(results){
     let out = "";
     let count = 1;
     for(let r of results){
-        out += `<tr><td>${count}) </td><td class="num">${r.num}</td><td>=</td><td class="divisor">${r.divisor}</td><td>×</td><td class="quotient">${r.quotient}</td><td>+</td><td class="remainder">${r.remainder}</td></tr>`
+        out += `<tr><td>${count})&nbsp&nbsp</td><td class="num">${r.num}</td><td>=</td><td class="divisor">${r.divisor}</td><td>×</td><td class="quotient">${r.quotient}</td><td>+</td><td class="remainder">${r.remainder}</td></tr>`
         count ++;
     }
     return out;
