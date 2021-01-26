@@ -6,6 +6,22 @@
  * @property {number} remainder  
  */
 
+function init() {
+    console.log('Load')
+    let urlParams = new URLSearchParams(window.location.search);
+    let num = urlParams.get('n');
+    if (num != null) {
+        document.getElementById("number").value = num;
+        calculateInverse();
+    }
+    let mod = urlParams.get('m');
+    if (mod != null) {
+        document.getElementById("modVal").value = mod;
+        calculateInverse();
+    }
+}
+
+window.onload = ()=>{init()};
 
 
 function calculateInverse(){
