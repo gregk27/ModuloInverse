@@ -6,27 +6,34 @@
  * @property {number} remainder  
  */
 
-function init() {
+function init(reload) {
     console.log('Load')
     let urlParams = new URLSearchParams(window.location.search);
     let num = urlParams.get('n');
     if (num != null) {
         document.getElementById("number").value = num;
-        calculateInverse();
+        calculateInverse(reload);
     }
     let mod = urlParams.get('m');
     if (mod != null) {
         document.getElementById("modVal").value = mod;
-        calculateInverse();
+        calculateInverse(reload);
     }
 }
 
-window.onload = ()=>{init()};
+window.onload = ()=>{init(true)};
+window.onpopstate = ()=>{init(false)};
 
 
-function calculateInverse(){
+function calculateInverse(reload = true){
     let modVal = document.getElementById("modVal").value;
     let num = document.getElementById("number").value;
+
+    if(reload){
+        document.title = document.title.split("|")[0];
+        document.title += `|${num} % ${modVal}`
+        window.history.pushState(null, document.title, `?n=${num}&m=${modVal}`);
+    }
 
     /** @type {GCDStep[]} */
     let results = [];
