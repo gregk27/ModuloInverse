@@ -132,7 +132,7 @@ function generateInverseHTML(results){
         console.log(out);
     }
 
-    if(results.length%2 == 1){
+    if(num2 == document.getElementById("number").value){
         out+= `Inverse of ${num2} mod ${num1} is <span style="font-weight:bold">${-coeff2} or <span style="color:red">${-coeff2 + num1}</span></span><br/>`;
         out+= `Inverse of ${num1} mod ${num2} is <span style="font-weight:bold">${coeff1}</span><br/>`;
     } else {
