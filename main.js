@@ -29,9 +29,9 @@ function calculateInverse(reload = true){
     let modVal = document.getElementById("modVal").value;
     let num = document.getElementById("number").value;
 
-    if(reload && window.location.href.split("?")[1]===`?n=${num}&m=${modVal}`){
-        document.title = document.title.split("|")[0];
-        document.title += `|${num} % ${modVal}`
+    document.title = document.title.split("|")[0];
+    document.title += `|${num} % ${modVal}`
+    if(reload && window.location.href.split("?")[1]!==`n=${num}&m=${modVal}`){
         window.history.pushState(null, document.title, `?n=${num}&m=${modVal}`);
     }
 
