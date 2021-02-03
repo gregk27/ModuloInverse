@@ -101,7 +101,7 @@ function generateInverseHTML(results){
     let num1 = 0;
     let coeff1 = 1;
     let num2 = 0;
-    let coeff2 = 1;
+    let coeff2 = results[results.length-1].quotient;
 
     let isOdd = false;
     for(let i = results.length-1; i>=0; i--){
