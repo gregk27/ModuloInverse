@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset='utf-8'>
     <title>Modulo Inverse Calculator </title>
@@ -12,21 +12,28 @@
 </head>
 <body>
     <h1>Modulo Inverse Calculator</h1>
-    <h3>Calculate a modulo inverse with steps</h3>
+    <h2>Calculate a modulo inverse with steps</h2>
     <div id="input">
-        <input type="number" id="number" value="2002"/> mod <input type="number" id="modVal" value="2339"/>
-        <input type="button" value="Calculate" onclick="calculateInverse()"/>
+        <input type="number" id="number" value="2002" tabindex="1"/>
+        <!-- Offscreen label for screen readers -->
+        <label for="number" style="position:absolute; top:-100px">Dividend</label>
+         mod 
+        <input type="number" id="modVal" value="2339" tabindex="2"/>
+        <!-- Offscreen label for screen readers -->
+        <label for="modVal" style="position:absolute; top:-100px">Divisor</label>
+        
+        <input type="button" value="Calculate" onclick="calculateInverse()" tabindex="3"/>
     </div>
     </br>
-    <h3>Calculate GCD using Euclid's Algorithm</h3>
+    <h2>Calculate GCD using Euclid's Algorithm</h2>
     <table id="euclid">
     </table>
     <br/>
-    <h3>Calculate the inverse from GCD steps</h3>
+    <h2>Calculate the inverse from GCD steps</h2>
     <div id="inverse">
     </div>
     <br/>
     <br/>
-    <a href="https://github.com/gregk27/ModuloInverse" style="font-size: 0.75em;">Github</a>
+    <a href="https://github.com/gregk27/ModuloInverse" style="font-size: 0.75em;" tabindex="-1">Github</a>
 </body>
 </html>

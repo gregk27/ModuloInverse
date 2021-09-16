@@ -3,6 +3,10 @@ body {
     margin-left: 2em;
 }
 
+h2 {
+    font-size: 1.17em;
+}
+
 .pad {
     opacity: 0;
     user-select: none;

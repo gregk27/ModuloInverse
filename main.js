@@ -43,7 +43,7 @@ function calculateInverse(reload = true){
 
     console.log(divisor)
     if(divisor != 1){
-        document.getElementById("inverse").innerHTML = `The GCD is ${divisor}.<br/>For inverse calculations please enter coprimes.`;
+        document.getElementById("inverse").innerHTML = `<div tabindex="4">The GCD is ${divisor}.<br/>For inverse calculations please enter coprimes.</div>`;
         return;
     }
 
@@ -84,7 +84,7 @@ function generateEuclidHTML(results){
     let out = "";
     let count = 1;
     for(let r of results){
-        out += `<tr><td>${count})&nbsp&nbsp</td><td class="num">${r.num}</td><td>=</td><td class="divisor">${r.divisor}</td><td>×</td><td class="quotient">${r.quotient}</td><td>+</td><td class="remainder">${r.remainder}</td></tr>`
+        out += `<tr tabindex="0"><td>${count})&nbsp&nbsp</td><td class="num">${r.num}</td><td>=</td><td class="divisor">${r.divisor}</td><td>×</td><td class="quotient">${r.quotient}</td><td>+</td><td class="remainder">${r.remainder}</td></tr>`
         count ++;
     }
     return out;
@@ -116,6 +116,7 @@ function generateInverseHTML(results){
             num1 = r.divisor;
             num2 = r.num;
         }
+        out += `<div tabindex="0">`
         let line = `1 = ${num1}×${coeff1} - ${num2}×${coeff2}`;
         out += line+"<br/>";
         if(i > 0){
@@ -127,17 +128,21 @@ function generateInverseHTML(results){
                 coeff2 += n.quotient*coeff1;
             }
         }
-        out += "<br/>\n";
+        out += "</div><br/>\n";
 
         console.log(out);
     }
 
+    out += `<div id="result" tabindex="4">\n`;
+
     if(num2 == document.getElementById("number").value){
-        out+= `Inverse of ${num2} mod ${num1} is <span style="font-weight:bold">${-coeff2} or <span style="color:red">${-coeff2 + num1}</span></span><br/>`;
+        out+= `Inverse of ${num2} mod ${num1} is <span style="font-weight:bold">${-coeff2} or <span style="color:#c90000">${-coeff2 + num1}</span></span><br/>`;
         out+= `Inverse of ${num1} mod ${num2} is <span style="font-weight:bold">${coeff1}</span><br/>`;
     } else {
-        out+= `Inverse of ${num1} mod ${num2} is <span style="font-weight:bold;color:red">${coeff1}</span><br/>`;
+        out+= `Inverse of ${num1} mod ${num2} is <span style="font-weight:bold;color:#c90000">${coeff1}</span><br/>`;
         out+= `Inverse of ${num2} mod ${num1} is <span style="font-weight:bold">${-coeff2} or ${-coeff2 + num1}</span><br/>`;
     }
+
+    out += "</div>"
     return out;
 }
